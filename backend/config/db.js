@@ -1,14 +1,13 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // <-- import mongoose
 
 const connectDB = async () => {
+  const MONGO_URI =process.env.MONGO_URI;
+
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/salesdb", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("✅ MongoDB Connected");
+    await mongoose.connect(MONGO_URI);
+    console.log("MongoDB connected");
   } catch (err) {
-    console.error("❌ MongoDB connection error:", err.message);
+    console.error("MongoDB connection error:", err);
     process.exit(1);
   }
 };

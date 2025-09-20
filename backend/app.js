@@ -1,19 +1,17 @@
+// backend/app.js
 const express = require("express");
-const cors = require("cors");
 const connectDB = require("./config/db");
-const analyticsRoutes = require("./routes/analytics");
-const reportRoutes = require("./routes/report");
+
+connectDB(); // connect to MongoDB
 
 const app = express();
 
-// Connect MongoDB
-connectDB();
-
-app.use(cors());
+// Middleware
 app.use(express.json());
 
-// Routes
-app.use("/api/analytics", analyticsRoutes);
-app.use("/api/report", reportRoutes);
+// Example route
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
-module.exports = app;
+module.exports = app; // export the app
