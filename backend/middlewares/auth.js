@@ -1,6 +1,7 @@
-// Dummy middleware for auth (bonus)
-module.exports = (req, res, next) => {
-  // Implement JWT or API key if required
-  console.log("Auth middleware placeholder");
+const auth = (req, res, next) => {
+  const token = req.headers["authorization"];
+  if (!token) return res.status(401).json({ error: "Unauthorized" });
   next();
 };
+
+module.exports = auth;

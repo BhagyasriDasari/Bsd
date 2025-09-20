@@ -1,4 +1,7 @@
-// Helper function example
-exports.formatDate = (date) => {
-  return new Date(date).toISOString().split("T")[0];
+const formatCurrency = (num) => {
+  return `$${num.toLocaleString()}`;
+};
+
+module.exports = {
+  formatCurrency,
 };

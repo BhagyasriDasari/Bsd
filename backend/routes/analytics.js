@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { getRevenue } = require("../controllers/analyticsController");
+const { getAnalytics, getRevenueOverTime } = require("../controllers/analyticsController");
 
-router.get("/revenue", getRevenue);
+// Metrics
+router.get("/metrics", getAnalytics);
+
+// Revenue over time
+router.get("/daily-revenue", getRevenueOverTime);
 
 module.exports = router;

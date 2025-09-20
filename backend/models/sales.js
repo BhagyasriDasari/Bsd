@@ -1,11 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const salesSchema = new mongoose.Schema({
-  customerId: { type: mongoose.Schema.Types.ObjectId, ref: "Customer" },
-  productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+  customerId: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer' }, // make sure this exists
+  productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
   quantity: Number,
-  totalRevenue: Number,
-  reportDate: { type: Date, default: Date.now },
+  amount: Number, // total revenue per sale
+  region: String,
+  reportDate: Date
 });
 
-module.exports = mongoose.model("Sales", salesSchema);
+module.exports = mongoose.model('Sales', salesSchema);

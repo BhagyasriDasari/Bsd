@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
-const customerSchema = new mongoose.Schema({
-  name: String,
-  region: String,
-  type: String, // Individual, Business
+const CustomerSchema = new mongoose.Schema({
+  customer: String,    // customer name
+  product: String,     // product sold
+  amount: Number,      // sale amount
+  date: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Customer", customerSchema);
+module.exports = mongoose.model("Customer", CustomerSchema);
